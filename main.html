@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link rel="icon" type="image/png" href="cube.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles pour l'écran de démarrage */
+        #startup-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #181c20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        #breach-btn {
+            background: #FF003C;
+            color: #FCEE09;
+            border: none;
+            padding: 1em 2em;
+            font-size: 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #FF003C;
+            transition: background 0.2s, color 0.2s;
+        }
+        #breach-btn:hover {
+            background: #181c20;
+            color: #FCEE09;
+            border: 2px solid #FF003C;
+        }
+        #loading-words {
+            margin-top: 2em;
+            color: #54c1e6;
+            font-family: 'Consolas', monospace;
+            font-size: 1.5rem;
+            min-height: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="startup-screen">
+        <button id="breach-btn">BREACH</button>
+        <div id="loading-words" style="display:none;"></div>
+    </div>
+
+
+    <div class="centered">
+    <h1>PORTFOLIO</h1>
+    <h2>Valentin MICHEL</h2>
+    </div>
+
+<h3>vocoder</h3>
+    <div class="vocod">
+        
+        <div class="flex-content">
+            <p>La figure 1 est une capture d'écran du projet vocoder, réalisé dans le cadre d'un travail de groupe constitué de deux personnes. Il s'agit d'un projet de traitement du signal audio, où l’objectif était de transformer un signal sonore en appliquant différents effets audio. Le projet a été développé en Java, avec une interface graphique simple conçue à l’aide de la bibliothèque StdDraw, et un traitement audio assuré par la bibliothèque StdAudio. Le vocodeur implémente plusieurs effets audio : un effet d’écho, un vocoder simple, ainsi que deux variantes avancées nommées simple over et simple overcross. Ces traitements permettent, entre autres, de modifier la durée d’un fichier audio, de superposer des signaux, ou d’ajouter un délai temporel. Ce projet m’a permis de mobiliser plusieurs savoirs fondamentaux :
+
+l’application des bases de l’algorithmique (boucles, conditions, tableaux) pour manipuler des données audio échantillonnées ;
+
+la compréhension des notions de traitement du signal numérique, telles que l’échantillonnage, la superposition de signaux, ou l’ajout de délais temporels ;
+
+l’utilisation de bibliothèques Java externes comme StdAudio et StdDraw, pour gérer respectivement l’audio et l’affichage.
+
+Du point de vue des savoir-faire, j’ai :
+
+implémenté les algorithmes de traitement audio correspondant à l’effet d’écho et au vocoder « simple over », en m’appuyant sur des schémas fournis ;
+
+assuré une partie de la programmation de l’interface graphique, en réalisant des composants interactifs fonctionnels tels que les boutons pour charger, lancer ou rejouer un traitement ;
+
+contribué à la compréhension des attentes techniques à partir de documents schématiques, ce qui a représenté une difficulté majeure ;
+
+collaboré efficacement en binôme, avec une répartition claire des tâches.
+
+Ce projet, bien que relativement léger en complexité logicielle, m’a permis de confronter des connaissances théoriques à leur mise en œuvre concrète, en particulier dans le cadre du traitement du son et de l’interactivité graphique en Java.</p>
+            <!--<p>La figure 1 est une capture d'écran du projet vocoder réalisé dans le cadre d'un travail de groupe constitué de deux personnes. Il s'agit d'un projet de traitement du signal audio, où j'ai implémenté un vocodeur pour transformer un signal en utilisant des algorithmes de modifications de son comme . Le projet a été développé en Java, avec une interface graphique faite avec StdDraw.</p>-->
+        </div>
+        <div class="flex-img">
+            <img src="vocoder.png" alt="vocoder image"
+            style="width: 90%; height: auto;">
+            <p class="txtfigure">Figure 1 : Rendu graphique du projet vocoder</p>
+        </div>
+    </div>
+    
+
+
+        <script>
+        const words = [
+            "Compilation des shaders...",
+            "Initialisation du moteur graphique...",
+            "Chargement des assets...",
+            "Connexion au serveur...",
+            "Authentification...",
+            "Déploiement du pare-feu...",
+            "Analyse des vulnérabilités...",
+            "Injection du code...",
+            "Bypass des sécurités...",
+            "Accès aux logs...",
+            "Synchronisation des modules...",
+            "Chargement du portfolio..."
+        ];
+        const breachBtn = document.getElementById('breach-btn');
+        const loadingWords = document.getElementById('loading-words');
+        const startupScreen = document.getElementById('startup-screen');
+        const mainContent = document.querySelectorAll('.centered, h3, .vocod');
+
+        breachBtn.onclick = function() {
+            breachBtn.style.display = 'none';
+            loadingWords.style.display = 'block';
+            let i = 0;
+            function showWord() {
+                if (i < words.length) {
+                    loadingWords.textContent = words[i];
+                    i++;
+                    setTimeout(showWord, 80);
+                } else {
+                    startupScreen.style.display = 'none';
+                    mainContent.forEach(e => e.style.display = '');
+                }
+            }
+            showWord();
+        };
+    </script>
+</body>
+</html>
