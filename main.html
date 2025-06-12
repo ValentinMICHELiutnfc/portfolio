@@ -89,7 +89,48 @@ Ce projet, bien que relativement léger en complexité logicielle, m’a permis 
             <p class="txtfigure">Figure 1 : Rendu graphique du projet vocoder</p>
         </div>
     </div>
+
+    <h3>quixo</h3>
+
+    <div class="vocod">
+        <div class="flex-img">
+            <img src="quixo.png" alt="quixo image"
+            style="width: 45%; height: auto;">
+            <p class="txtfigure">Figure 2 : Interface texte et saisie incorecte dans le jeu quixo</p>
+        </div>
+        <div class="flex-content">
+            <p>La figure 2 montre une capture d’écran du jeu Quixo, développé en Java dans le cadre d’un travail en groupe de quatre personnes. Ce jeu de stratégie en tour par tour a été conçu selon le paradigme MVC (Modèle-Vue-Contrôleur), avec une première version fonctionnelle jouable en console texte, utilisant la bibliothèque boardifier-console.
+
+J’ai principalement contribué à la partie modèle du projet, c’est-à-dire à l’implémentation de la logique de jeu. Cela m’a demandé de bien comprendre et formaliser les règles du jeu de Quixo, afin de pouvoir les traduire correctement en code. Cette étape a été un défi important, car elle nécessitait une gestion rigoureuse du déroulement des tours, des règles de mouvement autorisées, et des conditions de victoire.
+
+Ce projet a été l’occasion de mobiliser plusieurs savoirs fondamentaux :
+
+la lecture et l’analyse de commandes textuelles saisies par l’utilisateur ;
+
+le concept d’héritage, pour étendre les classes de la bibliothèque et personnaliser le visuel console du plateau ;
+
+la redéfinition de méthodes afin d’adapter les comportements de base de la bibliothèque à notre jeu ;
+
+le polymorphisme, pour que nos nouvelles classes puissent être intégrées de manière transparente au système existant.
+
+Du point de vue des savoir-faire, j’ai notamment :
+
+implémenté la logique métier du jeu (gestion des mouvements, vérification des coups légaux, détection de fin de partie) ;
+
+collaboré avec l’équipe pour définir les interfaces entre les différentes couches (modèle, vue, contrôleur) ;
+
+veillé à respecter l’architecture MVC, en séparant clairement les responsabilités ;
+
+participé à la validation des entrées utilisateur, en lien avec les responsables de la partie vue.
+
+Ce projet m’a permis de renforcer ma capacité à traduire des règles abstraites en structures et algorithmes concrets, tout en travaillant en groupe dans une architecture logicielle propre. Une version graphique en JavaFX est prévue en évolution future du projet.</p>
+        </div>
+    </div>
     
+
+
+
+
 
 
         <script>
@@ -105,28 +146,51 @@ Ce projet, bien que relativement léger en complexité logicielle, m’a permis 
             "Bypass des sécurités...",
             "Accès aux logs...",
             "Synchronisation des modules...",
-            "Chargement du portfolio..."
+            "Chargement du portfolio...",
+            "Vérification de l’intégrité des fichiers...",
+"Initialisation du protocole sécurisé...",
+"Chargement des librairies système...",
+"Activation du chiffrement AES...",
+"Scan des ports ouverts...",
+"Établissement du tunnel VPN...",
+"Lecture des configurations réseau...",
+"Synchronisation des dépendances...",
+"Optimisation des performances...",
+"Analyse heuristique en cours...",
+"Détection des anomalies...",
+"Compilation des modules complémentaires...",
+"Connexion à la base de données...",
+"Chargement des préférences utilisateur...",
+"Application des correctifs de sécurité...",
+"Nettoyage du cache temporaire...",
+"Finalisation du démarrage..."
         ];
         const breachBtn = document.getElementById('breach-btn');
         const loadingWords = document.getElementById('loading-words');
         const startupScreen = document.getElementById('startup-screen');
         const mainContent = document.querySelectorAll('.centered, h3, .vocod');
 
-        breachBtn.onclick = function() {
-            breachBtn.style.display = 'none';
-            loadingWords.style.display = 'block';
-            let i = 0;
-            function showWord() {
-                if (i < words.length) {
-                    loadingWords.textContent = words[i];
-                    i++;
-                    setTimeout(showWord, 80);
-                } else {
-                    startupScreen.style.display = 'none';
-                    mainContent.forEach(e => e.style.display = '');
-                }
-            }
-            showWord();
+   breachBtn.onclick = function() {
+    breachBtn.style.display = 'none';
+    loadingWords.style.display = 'block';
+    loadingWords.textContent = ''; // Vide le contenu
+    let i = 0;
+    function showWord() {
+        if (i < words.length) {
+            // Crée une nouvelle ligne pour chaque mot
+            const line = document.createElement('div');
+            line.textContent = words[i];
+            loadingWords.appendChild(line);
+            i++;
+            setTimeout(showWord, 80);
+        } else {
+            setTimeout(() => {
+                startupScreen.style.display = 'none';
+                mainContent.forEach(e => e.style.display = '');
+            }, 5);
+        }
+    }
+    showWord();
         };
     </script>
 </body>
